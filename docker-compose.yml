@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  ubuntu:
+    container_name: ubuntu
+    build: ./ubuntu/
+    command: /bin/bash
+    tty: true
+    networks:
+      - test_network
+
+  mysql:
+    container_name: mysql
+    build: ./mysql/
+    restart: always
+    environment:
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: myrootpassword
+    networks:
+      - test_network
+
+networks:
+  test_network:
