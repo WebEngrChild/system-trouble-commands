@@ -9,6 +9,9 @@ up:
 start:
 	docker-compose exec ubuntu service nginx start
 # 強制的にエラーを発生させるため設定ファイルを削除
+generate-error:
+	@make delete-conf
+	@make test
 delete-conf:
 	docker-compose exec ubuntu rm /etc/nginx/nginx.conf
 test:
