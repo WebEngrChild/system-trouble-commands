@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     htop \
     lsof \
     sysstat \
-    dstat
+    dstat \
+    nginx
 
 CMD ["/bin/bash"]
